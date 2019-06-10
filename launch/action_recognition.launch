@@ -1,0 +1,8 @@
+<launch>
+	<rosparam param="model_path_xml">"/models/person-detection-action-recognition-0005-fp16.xml"</rosparam>
+	 <rosparam param="model_path_bin">"/models/person-detection-action-recognition-0005-fp16.bin"</rosparam>
+	<node pkg="movidius" name="action_recognition" type="action_recognition" output="screen">
+	<remap from="/color/image_raw" to="/webcam/image_raw"/>
+	</node>
+
+</launch>

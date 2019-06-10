@@ -1,0 +1,23 @@
+<launch>
+	<!--Face Detection-->
+	
+	<rosparam param="model_path_xml">"/models/face-detection-retail-0004-fp16.xml"</rosparam>
+	<rosparam param="model_path_bin">"/models/face-detection-retail-0004-fp16.bin"</rosparam>
+	
+
+	<!--Person Detection-->
+	<!--
+	<rosparam param="model_path_xml">"/models/person-detection-retail-0002-fp16.xml"</rosparam>
+	<rosparam param="model_path_bin">"/models/person-detection-retail-0002-fp16.bin"</rosparam>
+	-->
+
+	<!--Face & Person Detection-->
+	<!--	
+	<rosparam param="model_path_xml">"/models/face-person-detection-retail-0002-fp16.xml"</rosparam>
+	<rosparam param="model_path_bin">"/models/face-person-detection-retail-0002-fp16.bin"</rosparam>
+	-->
+	<node pkg="movidius" name="movidius_face_detection" type="movidius_face_detection" output="screen">
+		<remap from="/color/image_raw" to="/webcam/image_raw"/>
+	</node>
+
+</launch>

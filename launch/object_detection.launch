@@ -1,0 +1,17 @@
+<launch>
+	<!-- SSD 300-->
+	<!--
+	<arg name="model_path_xml" default="/models/ssd300_fp16.xml"/>
+	<arg name="model_path_bin" default="/models/ssd300_fp16.bin"/>
+	-->
+	<!-- SSD Mobilenet -->	
+	<arg name="model_path_xml" default="/models/FP16/mobilenet-ssd/mobilenet-ssd.xml"/>
+	<arg name="model_path_bin" default="/models/FP16/mobilenet-ssd/mobilenet-ssd.bin"/>
+	<param name="model_path_xml" value="$(arg model_path_xml)"/>
+	<param name="model_path_bin" value="$(arg model_path_bin)" />
+
+	<node pkg="movidius" name="object_detection" type="object_detection" output="screen">
+	<remap from="/color/image_raw" to="/webcam/image_raw"/>
+	</node>
+
+</launch>
